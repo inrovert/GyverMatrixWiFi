@@ -123,7 +123,7 @@ void loadSettings() {
     globalColor = getGlobalColor();
 
     useSoftAP = getUseSoftAP();
-    getSoftAPName().toCharArray(apName, 10);        //  54-63   - имя точки доступа    ( 9 байт макс) + 1 байт '\0'
+    getSoftAPName().toCharArray(apName, 11);        //  54-63   - имя точки доступа    (10 байт макс) + 1 байт '\0'
     getSoftAPPass().toCharArray(apPass, 17);        //  64-79   - пароль точки доступа (16 байт макс) + 1 байт '\0'
     getSsid().toCharArray(ssid, 22);                //  80-100  - имя сети  WiFi       (21 байт макс) + 1 байт '\0'
     getPass().toCharArray(pass, 20);                //  101-119 - пароль сети  WiFi    (19 байт макс) + 1 байт '\0'
@@ -155,7 +155,7 @@ void loadSettings() {
     overlayEnabled = true;
     useNtp = true;
     SYNC_TIME_PERIOD = 60;
-    timeZoneOffset = 7;
+    timeZoneOffset = 2;
     CLOCK_ORIENT = 0;
     COLOR_MODE = 0;
     showDateInClock = true;  
@@ -258,6 +258,15 @@ void saveDefaults() {
   strcpy(apPass, DEFAULT_AP_PASS);
   setSoftAPName(String(apName));
   setSoftAPPass(String(apPass));
+
+  /*****************************************************/
+  /*****************************************************/
+  strcpy(apName, NETWORK_SSID);
+  strcpy(apPass, NETWORK_PASS);
+  setSsid(String(ssid));
+  setPass(String(pass));
+  /*****************************************************/
+  /****************************************************/
   
   strcpy(ntpServerName, DEFAULT_NTP_SERVER);
   setNtpServer(String(ntpServerName));
