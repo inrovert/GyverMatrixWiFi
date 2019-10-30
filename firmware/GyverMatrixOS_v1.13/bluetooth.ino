@@ -390,7 +390,6 @@ void parsing() {
     6 - текст $6 N|some text, где N - назначение текста;
         0 - текст бегущей строки
         1 - имя сервера NTP
-        2 - SSID сети подключения
         3 - пароль для подключения к сети 
         4 - имя точки доступа
         5 - пароль к точке доступа
@@ -653,11 +652,11 @@ void parsing() {
               }
               break;
             case 2:
-              str.toCharArray(ssid, 24);
+              str.toCharArray(ssid, 21);
               setSsid(str);
               break;
             case 3:
-              str.toCharArray(pass, 16);
+              str.toCharArray(pass, 19);
               setPass(str);
               break;
             case 4:
