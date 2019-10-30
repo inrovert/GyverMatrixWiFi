@@ -48,7 +48,7 @@
 #define DEFAULT_AP_NAME "MatrixAP"           // Имя точки доступа по умолчанию 
 #define DEFAULT_AP_PASS "12341234"           // Пароль точки доступа по умолчанию
 #define localPort 2390                       // Порт матрицы для подключения из программы на смартфоне
-byte IP_STA[] = {192, 168, 0, 106};          // Статический адрес матрицы в локальной сети WiFi
+byte IP_STA[] = {0, 0, 0, 0};          // Статический адрес матрицы в локальной сети WiFi
 
 #define DEFAULT_NTP_SERVER "ru.pool.ntp.org" // NTP сервер по умолчанию "time.nist.gov"
 
@@ -381,7 +381,7 @@ IPAddress timeServerIP;
 uint16_t SYNC_TIME_PERIOD = 60;          // Период синхронизации в минутах
 byte packetBuffer[NTP_PACKET_SIZE];      // буффер для хранения входящих и исходящих пакетов
 
-int8_t timeZoneOffset = 7;               // смещение часового пояса от UTC
+int8_t timeZoneOffset = 2;               // смещение часового пояса от UTC
 long ntp_t = 0;                          // Время, прошедшее с запроса данных с NTP-сервера (таймаут)
 byte ntp_cnt = 0;                        // Счетчик попыток получить данные от сервера
 bool init_time = false;                  // Флаг false - время не инициализировано; true - время инициализировано
